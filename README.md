@@ -11,6 +11,19 @@ Fork and clone this repo. On your fork, answer and commit the follow questions. 
 
 - Translate at least 3 of the capital names into another language.
 
+```swift
+//my Dictionary Below
+var citiesDict: [String: String] = ["Belgum": "Brussels", "Egypt": "Cairo", "Morocco": "Rabat"]
+
+//Dictionary with 2 added countries and their capitals
+citiesDict["Vietnam"] = "Hanoi"
+citiesDict["Mexico"] = "Mexico City"
+
+//Three translated capitals in Spanish
+citiesDict["Belgum"] = "Bruselas"
+citiesDict["Mexico"] = "Ciudad de México"
+```
+
 
 ## Question 2
 
@@ -18,15 +31,122 @@ Fork and clone this repo. On your fork, answer and commit the follow questions. 
 
 - Using `someDict`, add together the values associated with "Three" and "Five" and print the result.
 
+```swift
+var someDict:[String:Int] = ["One": 1, "Two": 4, "Three": 9, "Four": 16, "Five": 25]
+
+var sumOfThreeAndFour = someDict["Three"]! + someDict["Five"]!
+print(sumOfThreeAndFour)
+```
+
 - Add values to the dictionary for the keys "Six" and "Seven".
 
+```swift
+var someDict:[String:Int] = ["One": 1, "Two": 4, "Three": 9, "Four": 16, "Five": 25]
+
+var sumOfThreeAndFour = someDict["Three"]! + someDict["Five"]!
+print(sumOfThreeAndFour)
+
+someDict["Six"] = 98
+someDict["Seven"] = 7
+```
+
 - Make a key called `productUpToSeven` and set its value equal to the product of all the values.
+```swift
+var someDict:[String:Int] = ["One": 1, "Two": 4, "Three": 9, "Four": 16, "Five": 25]
+
+var sumOfThreeAndFour = someDict["Three"]! + someDict["Five"]!
+print(sumOfThreeAndFour)
+
+someDict["Six"] = 98
+someDict["Seven"] = 7
+
+var product = 1
+someDict["productUpToSeven"]
+
+for value in someDict.values {
+product *= value
+}
+someDict["productUpToSeven"] = product
+
+someDict["sumUpToSix"]
+var sumOfKeys = 0
+
+for (key, value) in someDict {
+if key == "Seven" {
+continue
+} else {
+sumOfKeys += value
+}
+}
+someDict["sumUpToSix"] = sumOfKeys
+```
 
 - Make a key called `sumUpToSix` and set its value equal to the sum of the keys "One", "Two", "Three", "Four", "Five" and "Six".
+```swift
+var someDict:[String:Int] = ["One": 1, "Two": 4, "Three": 9, "Four": 16, "Five": 25]
+someDict["Six"] = 98
+someDict["Seven"] = 7
+someDict["sumUpToSix"]
+var sum = 0
+
+for (key, value) in someDict {
+if key == "Seven" {
+continue
+} else {
+sum += value
+}
+}
+someDict["sumUpToSix"] = sum
+```
 
 - Remove the new keys made in the previous two steps
+```swift
+var someDict:[String:Int] = ["One": 1, "Two": 4, "Three": 9, "Four": 16, "Five": 25]
+
+var sumOfThreeAndFour = someDict["Three"]! + someDict["Five"]!
+print(sumOfThreeAndFour)
+
+someDict["Six"] = 98
+someDict["Seven"] = 7
+
+var product = 1
+someDict["productUpToSeven"]
+
+for value in someDict.values {
+product *= value
+}
+someDict["productUpToSeven"] = product
+
+someDict["sumUpToSix"]
+var sumOfKeys = 0
+
+for (key, value) in someDict {
+if key == "Seven" {
+continue
+} else {
+sumOfKeys += value
+}
+}
+someDict["sumUpToSix"] = sumOfKeys
+
+someDict.removeValue(forKey: "sumUpToSix")
+someDict.removeValue(forKey: "productUpToSeven")
+```
 
 - Add 2 to every value inside of `someDict`.
+```swift
+var someDict:[String:Int] = ["One": 1, "Two": 4, "Three": 9, "Four": 16, "Five": 25]
+
+var sumOfThreeAndFour = someDict["Three"]! + someDict["Five"]!
+print(sumOfThreeAndFour)
+
+someDict["Six"] = 98
+someDict["Seven"] = 7
+
+for (key, value) in someDict {
+someDict[key] = value + 2
+}
+```
 
 
 ## Question 3
@@ -41,15 +161,48 @@ Create a variable that is explicitly typed as a dictionary that maps strings to 
 | C.S. Lewis | 9.9 |
 | Jon Krakauer | 6.1 |
 
+```swift
+var authorScores: [String: Double] = ["markTwain": 8.9, "nathanielHawthorne": 5.1, "johnSteinbeck": 2.3, "cSLewis": 9.9, "jonKrakauer": 6.1]
+```
+
 Using the dictionary created in the previous problem, do the following:
 
 - Print out the floating-point score for “John Steinbeck”.
 
+```swift
+var authorScores: [String: Double] = ["markTwain": 8.9, "nathanielHawthorne": 5.1, "johnSteinbeck": 2.3, "cSLewis": 9.9, "jonKrakauer": 6.1]
+print(authorScores["johnSteinbeck"]!)
+```
+
 - Add an additional author named “Erik Larson” with an assigned score of 9.2.
+
+```swift
+var authorScores: [String: Double] = ["markTwain": 8.9, "nathanielHawthorne": 5.1, "johnSteinbeck": 2.3, "cSLewis": 9.9, "jonKrakauer": 6.1]
+authorScores["erikLarson"] = 9.2
+```
 
 - Write an if/else statement that compares the score of John Krakaur with Mark Twain. Print out the name of the author with the highest score.
 
+```swift
+var authorScores: [String: Double] = ["markTwain": 8.9, "nathanielHawthorne": 5.1, "johnSteinbeck": 2.3, "cSLewis": 9.9, "jonKrakauer": 6.1]
+authorScores["erikLarson"] = 9.2
+
+if authorScores["jonKrakauer"]! > authorScores["markTwain"]! {
+print("John Krakauer")
+} else {
+print("Mark Twain")
+}
+```
+
 - Use a for-loop to iterate through the dictionary you created at the beginning of the problem, and print out the content in the form of key: value, one entry per line.
+
+```swift
+var authorScores: [String: Double] = ["markTwain": 8.9, "nathanielHawthorne": 5.1, "johnSteinbeck": 2.3, "cSLewis": 9.9, "jonKrakauer": 6.1]
+
+for (key, value) in authorScores {
+print("\(key): \(value)")
+}
+```
 
 
 ## Question 4
@@ -87,10 +240,98 @@ var code = [
 ]
 
 var message = "hello world"
+
+//my code below
+
+var code = [
+"a" : "b",
+"b" : "c",
+"c" : "d",
+"d" : "e",
+"e" : "f",
+"f" : "g",
+"g" : "h",
+"h" : "i",
+"i" : "j",
+"j" : "k",
+"k" : "l",
+"l" : "m",
+"m" : "n",
+"n" : "o",
+"o" : "p",
+"p" : "q",
+"q" : "r",
+"r" : "s",
+"s" : "t",
+"t" : "u",
+"u" : "v",
+"v" : "w",
+"w" : "x",
+"x" : "y",
+"y" : "z",
+"z" : "a",
+" " : " "
+]
+var message = "hello world"
+var encodedMessage = ""
+
+for character in message {
+for (key, value) in code {
+if String(character) == key {
+encodedMessage += value
+}
+}
+}
+print(encodedMessage)
+
 ```
 
 You are also given an `encodedMessage` which contains only lowercase letters and spaces. Use the `code` dictionary to decode the message and print it.
 `var encodedMessage = "uijt nfttbhf jt ibse up sfbe"`
+
+```swift
+var code = [
+"a" : "b",
+"b" : "c",
+"c" : "d",
+"d" : "e",
+"e" : "f",
+"f" : "g",
+"g" : "h",
+"h" : "i",
+"i" : "j",
+"j" : "k",
+"k" : "l",
+"l" : "m",
+"m" : "n",
+"n" : "o",
+"o" : "p",
+"p" : "q",
+"q" : "r",
+"r" : "s",
+"s" : "t",
+"t" : "u",
+"u" : "v",
+"v" : "w",
+"w" : "x",
+"x" : "y",
+"y" : "z",
+"z" : "a",
+" " : " "
+]
+
+var encodedMessage = "uijt nfttbhf jt ibse up sfbe"
+var decodedMessage = ""
+
+for character in encodedMessage {
+for (key, value) in code {
+if String(character) == value {
+decodedMessage += key
+}
+}
+}
+print(decodedMessage)
+```
 
 
 ## Question 5
@@ -120,6 +361,17 @@ var people: [[String:String]] = [
         "lastName": "Bowen"
     ]
 ]
+
+var firstNames: [String] = []
+
+for person in people {
+for (key, value) in person {
+if key == "firstName" {
+firstNames.append(value)
+}
+}
+}
+print(firstNames)
 ```
 
 Now, create an array of strings called `fullNames` that contains the values for `“firstName”` and `“lastName”` from the dictionary separated by a space.
@@ -157,6 +409,7 @@ var peopleWithScores: [[String: String]] = [
         "score": "16"
     ]
 ]
+
 ```
 
 Print out the dictionary above in the following format:  **full name - score**
